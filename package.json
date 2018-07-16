@@ -53,13 +53,13 @@
     "keywords": [
         "ej2",
         "samples",
-        "loan-calculator",
+        "stock-chart",
         "syncfusion",
         "ej2-samples",
-        "ej2-ng-loan-calculator",
+        "ej2-ng-stock-chart",
         "ej2-showcase-samples",
         "syncfusion-samples",
-        "syncfusion-loan-calculator"
+        "syncfusion-stock-chart"
     ],
     "scripts": {
         "build": "npm run scripts && gulp styles && gulp bundle",
