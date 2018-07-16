@@ -1,0 +1,64 @@
+<div id="waitingpopup" class="loader" align="center">
+</div>
+<div class="stock-details" id="stock-details" style="visibility: hidden">
+    <div id="stockRange" style="font-family: SegoeUI-Semibold;
+    font-weight: 600;
+    font-size: 17px;
+    color: #666666;
+    line-height: 26px;">
+        <div id="title">Alphabet Inc. (GOOG) 2012-2015</div>
+        <div id="close" style=" font-size:17px">
+            <div id="value" style="float: left;">$534.07</div>
+            <div id="inc" style="color: #2ECD71;">&nbsp;&nbsp;&nbsp;+5.83 (+0.51%)</div>
+        </div>
+        <div id="atClose" style=" font-family: SegoeUI;
+        font-size: 14px;
+        line-height: 26px;">At Close: 4:00 PM EDT</div>
+    </div>
+    <div class='container-control'>
+        <div class="range-element">
+            <ejs-rangenavigator #range align='center' back id='range' labelPosition='Outside' valueType='DateTime' [width]='width' (changed)='rangeChanged($event)'
+                [theme]='theme' disableRangeSelector=true [dataSource]='data' xName='x' yName='close' [periodSelectorSettings]='periods'
+                animationDuration=500 (loaded)='rangeLoaded($event)' (selectorRender)='selectorRender($event)'>
+            </ejs-rangenavigator>
+        </div>
+        <div class="chart-element">
+            <ejs-chart #chart id='chartStock' [enableSideBySidePlacement]='sidePlacement' [chartArea]='chartArea' [width]='width' align='center' style="display:block;" [primaryXAxis]='primaryXAxis'
+                [primaryYAxis]='primaryYAxis' [tooltip]='tooltip' [crosshair]='crosshair' (tooltipRender)='tooltipRender($event)'
+                (pointRender)='pointRender($event)' (chartMouseMove)='chartMouseMove' (chartMouseUp)='chartMouseLeave()' (chartMouseLeave)='chartMouseLeave()' [axes]='axes'
+                [rows]='rows' [legendSettings]='legendSettings' [theme]='theme' [zoomSettings]='zoomSettings' (axisLabelRender)='axisLabelRender($event)'
+                (loaded)='loaded($event)' (load)='chartLoad($event)' (chartMouseClick)='chartClick($event)'>
+                <e-annotations>
+                    <e-annotation content='<div class="e-annotation"id="annotation"></div>' coordinateUnits='Pixel' region='Chart' x='3%' y='12%'
+                        verticalAlignment='Bottom' horizontalAlignment='Far'>
+                    </e-annotation>
+                    <e-annotation [content]="firstContent" coordinateUnits='Pixel' region='Chart' x='1%' y='5' verticalAlignment='Bottom' horizontalAlignment='Far'>
+                    </e-annotation>
+                </e-annotations>
+                <e-series-collection>
+                    <e-series [dataSource]='data' type='Column' yAxisName='secondary' xName='x' yName='volume' low='low' high='high' close='close'
+                        volume='volume' open='open'> </e-series>
+                    <e-series [dataSource]='data' width='2' type='Candle' xName='x' yName='close' high='high' low='low' open='open' close='close'
+                        volume='volume' name='Apple Inc' bearFillColor='#2ecd71' bullFillColor='#e74c3d'>
+                        <e-trendlines>
+                            <e-trendline type='Polynomial' width=0 fill='#9D36F1' [enableTooltip]=trendLineTooltip></e-trendline>
+                        </e-trendlines>
+                    </e-series>
+                    <e-series [dataSource]='data' type='Candle' xName='x' high='high' low='low' [opacity]='opacity' open='open' close='close'
+                        volume='volume' bearFillColor='#2ecd71' bullFillColor='#e74c3d' [animation]='animation'> </e-series>
+                    <e-series [dataSource]='secondaryData' fill="#ad6eff" name="AAPL" [opacity]='secondaryOpacity' type='Spline' xName='x' yName='close'
+                        width='2' [animation]='animation' high='high' low='low' open='open' close='close' volume='volume' [visible] = false> </e-series>
+                    <e-series [dataSource]='thirdData' fill="rgb(115, 211, 255)" name="GOOGL" [opacity]='thirdOpacity' type='Spline' xName='x'
+                        yName='close' width='2' [animation]='animation' high='close' low='close' open='close' close='close' volume='close'  [visible] = false>
+                    </e-series>
+                    <e-series [dataSource]='fourthData' name="AMZN" [opacity]='fourthOpacity' type='Spline' xName='x'
+                        yName='close' width='2' [animation]='animation' high='close' low='close' open='close' close='close' volume='close'  [visible] = false>
+                    </e-series>
+                    <e-series [dataSource]='fifthData' name="TSLA" [opacity]='fifthOpacity' type='Spline' xName='x'
+                        yName='close' width='2' [animation]='animation' high='close' low='close' open='close' close='close' volume='close'  [visible] = false>
+                    </e-series>
+                </e-series-collection>
+            </ejs-chart>
+        </div>
+    </div>
+</div>
