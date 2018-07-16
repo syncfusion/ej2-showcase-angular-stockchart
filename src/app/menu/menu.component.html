@@ -1,0 +1,56 @@
+<div style="margin-left: 0px; padding:0px 0px 0px 0px; background:white">
+    <div id='trade' class="e-icon e-trade" style="float:left"></div>
+    <div id='information' class="e-icon e-info" style="float:right" (click)='toggleMenu()'></div>
+    <div class="title">
+        <div class="title-text">
+            <span style="font-weight: 700">Stock &nbsp;</span>Analysis Demo
+        </div>
+    </div>
+    <div class="content container-fluid rightpane content-wrapper" style="background: #F1F5FB">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+<!-- Render the confirmation Dialog -->
+<ejs-dialog #confirmDialog [visible]='hidden' [position]='position' [header]='confirmHeader' [animationSettings]='animationSettings' [showCloseIcon]='confirmCloseIcon'
+    (open)="dialogOpen()" (close)="dialogClose()" [target]='target' [width]='confirmWidth'>
+    <ng-template #content>
+        <div class='about-description'>
+            <div class='about-overall' id='about-overall'>
+                <div class='about-description'>{{description}}</div>
+                <div class='list-heading'>{{listTitle}}</div>
+                <div class='about-component'>
+                    <div class='control-item' *ngFor="let item of controlList">
+                        <span class="icon-{{item.control | lowercase}} e-sb-icon control-icon"></span>
+                        <a class='control-name' href="{{item.link}}" target="_blank">{{item.control}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</ejs-dialog>
+
+<style>
+    .e-btn-hide {
+        display: none;
+    }
+
+    .dlgbtn {
+        margin-right: 5%;
+    }
+
+    .title {
+        height: 40px;
+        background: linear-gradient(to right, #5487E7 77%, #0BE2D8 100%);
+        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.16);
+    }
+
+    .title-text {
+        padding-top: 3px;
+        padding-left: 24px;
+        color: white;
+        margin-left: 30px;
+        font-size: 24px;
+        font-family: 'HelveticaNeueLT-HeavyCond';
+    }
+</style>
