@@ -12,7 +12,7 @@
         "systemjs": "^0.19.40",
         "gulp-print": "^2.0.1",
         "gulp-tslint": "^7.0.1",
-        "browser-sync": "2.11.2",
+        "browser-sync": "2.29.3",
         "gulp-sass-lint": "^1.1.1",
         "reflect-metadata": "^0.1.9",
         "tslint-microsoft-contrib": "^4.0.0",
