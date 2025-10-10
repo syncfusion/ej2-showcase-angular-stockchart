@@ -94,7 +94,7 @@
         "parsejson": "0.0.4",
         "fresh": ">=0.5.2",
         "mime": ">=1.4.1",
-        "hoek": "^9.0.3"
+        "hoek": "^4.2.1"
     },
     "devDependencies": {
         "@angular/cli": "1.5.6",
