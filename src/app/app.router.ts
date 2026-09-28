@@ -11,4 +11,4 @@ export const routes: Routes = [
   { path: 'about', component: AboutComponent }
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
+export const routing: ModuleWithProviders<RouterModule> = RouterModule.forRoot(routes);

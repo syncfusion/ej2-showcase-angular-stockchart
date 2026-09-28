@@ -1,20 +1,21 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { Browser, remove, EmitType } from '@syncfusion/ej2-base';
 import { Directive, HostListener } from '@angular/core';
-import { Chart, RangeNavigator, IRangeLoadedEventArgs, IRangeSelectorRenderEventArgs, ILoadEventArgs } from '@syncfusion/ej2-ng-charts';
-import { ChartTheme, PeriodSelectorSettingsModel, IChangedEventArgs, ChartSeriesType } from '@syncfusion/ej2-ng-charts';
+import { Chart, RangeNavigator, IRangeLoadedEventArgs, IRangeSelectorRenderEventArgs, ILoadEventArgs } from '@syncfusion/ej2-angular-charts';
+import { ChartTheme, PeriodSelectorSettingsModel, IChangedEventArgs, ChartSeriesType } from '@syncfusion/ej2-angular-charts';
 import { TechnicalIndicators, TechnicalIndicatorModel, TrendlineTypes, AxisModel, Axis } from '@syncfusion/ej2-charts';
 import { ItemModel } from '@syncfusion/ej2-navigations';
-import { ChartAreaModel, TooltipSettingsModel, CrosshairSettingsModel, ZoomSettingsModel, getElement } from '@syncfusion/ej2-ng-charts';
-import { ITooltipRenderEventArgs, IPointEventArgs, IAxisLabelRenderEventArgs, ILoadedEventArgs } from '@syncfusion/ej2-ng-charts';
-import { IMouseEventArgs, MarginModel, IPointRenderEventArgs, AnimationModel, withInBounds, Series } from '@syncfusion/ej2-ng-charts';
-import { RowModel, LegendSettingsModel, IAxisRangeCalculatedEventArgs, VisibleLabels, ExportType } from '@syncfusion/ej2-ng-charts';
+import { ChartAreaModel, TooltipSettingsModel, CrosshairSettingsModel, ZoomSettingsModel, getElement } from '@syncfusion/ej2-angular-charts';
+import { ITooltipRenderEventArgs, IPointEventArgs, IAxisLabelRenderEventArgs, ILoadedEventArgs } from '@syncfusion/ej2-angular-charts';
+import { IMouseEventArgs, MarginModel, IPointRenderEventArgs, AnimationModel, withInBounds, Series } from '@syncfusion/ej2-angular-charts';
+import { RowModel, LegendSettingsModel, IAxisRangeCalculatedEventArgs, VisibleLabels, ExportType } from '@syncfusion/ej2-angular-charts';
 import { goog, googl, aapl, amzn, tsla, IVolume, IClose } from './stock-data';
 import { DropDownButton, MenuEventArgs } from '@syncfusion/ej2-splitbuttons';
 import { Button } from '@syncfusion/ej2-buttons';
 
 
 @Component({
+  standalone: false,
   selector: 'stock',
   templateUrl: 'chart.component.html',
 })
@@ -850,14 +851,15 @@ export class ChartComponent implements OnInit {
   };
 
   public removeSecondaryElement = (time?: number): void => {
+    const delay: number = time === 0 ? 0 : 2000;
+    if (time === 0) {
+      this.chart.setAnnotationValue(0, '<div></div>');
+    }
     setTimeout(() => {
       if (getElement('annotation')) {
         remove(getElement('annotation'));
       }
-    },
-      // tslint:disable-next-line:align
-      time === 0 ? this.chart.setAnnotationValue(0, '<div></div>') : 2000
-    );
+    }, delay);
   }
 
   public handleResize(): void {
