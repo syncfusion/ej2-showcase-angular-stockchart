@@ -6,6 +6,7 @@ import { MenuComponent } from '../menu/menu.component';
 
 
 @Component({
+    standalone: false,
     templateUrl: 'about.component.html',
     encapsulation: ViewEncapsulation.None,
 })

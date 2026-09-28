@@ -2,12 +2,13 @@ import { Component, Directive, ElementRef } from '@angular/core';
 import { HostListener } from '@angular/core';
 import { Browser, rippleEffect, isNullOrUndefined as isNOU, enableRipple } from '@syncfusion/ej2-base';
 import { ViewChild, AfterViewInit } from '@angular/core';
-import { DialogComponent } from '@syncfusion/ej2-ng-popups';
+import { DialogComponent } from '@syncfusion/ej2-angular-popups';
 import { EmitType } from '@syncfusion/ej2-base';
 enableRipple(true);
 
 
 @Component({
+  standalone: false,
   selector: 'menu',
   templateUrl: 'menu.component.html'
 })

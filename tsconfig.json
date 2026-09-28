@@ -1,11 +1,14 @@
 {
     "compilerOptions": {
-        "target": "es5",
-        "module": "amd",
+        "target": "ES2022",
+        "module": "ES2022",
         "declaration": true,
         "removeComments": true,
         "noLib": false,
-        "lib": ["es2015", "dom"],
+        "lib": [
+            "ES2022",
+            "dom"
+        ],
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "sourceMap": true,
@@ -14,12 +17,10 @@
         "allowUnusedLabels": false,
         "noImplicitAny": true,
         "noImplicitReturns": true,
-        "noImplicitUseStrict": false,
         "noFallthroughCasesInSwitch": true,
         "allowJs": false,
         "forceConsistentCasingInFileNames": true,
-        "moduleResolution": "node",
-        "types": ["requirejs"]
+        "moduleResolution": "bundler"
     },
     "exclude": [
         "node_modules"

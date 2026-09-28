@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 
 @Component({
+    standalone: false,
     selector: 'app-root',
     templateUrl: './app.component.html'
 })

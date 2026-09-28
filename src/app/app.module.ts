@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { APP_BASE_HREF, HashLocationStrategy, Location, LocationStrategy} from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { ChartAllModule, RangeNavigatorAllModule } from '@syncfusion/ej2-ng-charts';
+import { ChartAllModule, RangeNavigatorAllModule } from '@syncfusion/ej2-angular-charts';
 
-import { DialogAllModule } from '@syncfusion/ej2-ng-popups';
+import { DialogAllModule } from '@syncfusion/ej2-angular-popups';
 
 import { routing } from './app.router';
 import { ChartComponent } from '../app/chart/chart.component';
@@ -27,10 +27,6 @@ import { AppComponent } from './app.component';
         AboutComponent,
         AppComponent
     ],
-    entryComponents: [
-        AppComponent,
-        ChartComponent
-      ],
     bootstrap: [AppComponent],
     providers: [ {provide: APP_BASE_HREF, useValue : '/' }, Location, {provide: LocationStrategy, useClass: HashLocationStrategy} ]
 })
